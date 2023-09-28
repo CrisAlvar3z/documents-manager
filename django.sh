@@ -4,7 +4,7 @@ export DJANGO_SUPERUSER_PASSWORD="admin"
 export DJANGO_SUPERUSER_EMAIL="admin@admin.com"
 
 echo "Create migrations"
-python manage.py makemigrations api
+python manage.py makemigrations
 echo "=================================="
 
 echo "Migrate"
