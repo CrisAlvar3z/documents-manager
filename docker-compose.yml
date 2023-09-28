@@ -1,12 +1,10 @@
 version: '3.9'
 
 services:
-  gestor_documentos_api:
-    container_name: gestor_documentos_api
-    restart: always
+  djangoapp:
+    container_name: djangoapp
     build: .
-    volumes:
-      - ./:/app
+    restart: always
     ports:
       - "8000:8000"
     environment:
@@ -15,6 +13,8 @@ services:
       - PG_DB=postgres
       - PG_HOST=db
       - PG_PORT=5432
+    volumes:
+      - .:/app
     depends_on:
       - db
   db:

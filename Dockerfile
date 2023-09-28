@@ -1,4 +1,4 @@
-FROM python:3.9.18
+FROM python:3.10
 
 ENV PYTHONUNBUFFERED 1
 
@@ -13,3 +13,4 @@ COPY . .
 EXPOSE 8000
 
 ENTRYPOINT ["/app/django.sh"]
+
