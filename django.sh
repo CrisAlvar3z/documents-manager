@@ -15,5 +15,5 @@ echo "Init Admin"
 python manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL
 echo "=================================="
 
-echo "Start server"
+echo "Start server" 
 python manage.py runserver 0.0.0.0:8000
