@@ -1,12 +1,14 @@
 import { TrashIcon, PencilSquareIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid'
 
 export default function ListDocuments(
-    { documents, onEdit, onDelete }: 
+    { documents = [], onEdit, onDelete }: 
     { documents: any[]; onEdit: any; onDelete: any }) {
+
+    console.log(documents)
     return (
         <>
             <ul className="divide-y divide-gray-100">
-                {documents ?
+                {documents.length > 0 ?
                     documents.map((document: any) => (
                         <li key={document.id} className="flex min-w-0 justify-between gap-x-6 py-5 ">
                             <div className="flex flex-col min-w-0 gap-x-4">
@@ -47,7 +49,12 @@ export default function ListDocuments(
                                 </div>
                             </div>
                         </li>
-                    )) : (null)
+                    )) : (
+                        //no documents
+                        <div className="flex justify-center items-center">
+                            <p className="text-center text-gray-500 text-xl">No hay documentos</p>
+                        </div>
+                    )
                 }
             </ul>
         </>
