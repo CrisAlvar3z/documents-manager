@@ -55,3 +55,8 @@ y a la API Django en
     http://localhost:8000/api/v1
 
 Para detener los contenedores, puedes presionar Ctrl+C en la terminal donde se están ejecutando.
+
+## Usuario de prueba
+
+usuario: admin
+clave: admin
