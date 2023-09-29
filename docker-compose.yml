@@ -1,9 +1,25 @@
 version: '3.9'
 
 services:
+  reactapp:
+    container_name: reactapp
+    build:
+      context: .
+      dockerfile: docker/app.Dockerfile
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    depends_on:
+      - djangoapp 
   djangoapp:
     container_name: djangoapp
-    build: .
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
     restart: always
     ports:
       - "8000:8000"
@@ -30,4 +46,5 @@ services:
       - pgdata:/var/lib/postgresql/data
 
 volumes:
+  node_modules:
   pgdata: {}
