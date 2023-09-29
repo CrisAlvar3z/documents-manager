@@ -49,12 +49,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'gestordocumentosproject.urls'
@@ -130,6 +130,26 @@ SIMPLE_JWT = {
     'ISSUER': None,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+CORS_ALLOW_HEADERS = [
+'Accept',
+'Accept-encoding',
+'Authorization',
+'Content-type',
+'Dnt',
+'lang',
+'Origin',
+'User-agent',
+'x-csrftoken',
+'x-requested-with',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+X_FRAME_OPTIONS = 'ALLOW-FROM http://localhost:3000/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
