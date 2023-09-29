@@ -6,7 +6,7 @@ const FileViewer = require('react-file-viewer-extended');
 const DisplayDocument = () => {
   const params = useParams();
   const [fileType, setfileType] = useState<string | undefined>(params.media?.split('.')[1])
-  const [documentUri, setDocumentUri] = useState<string | undefined>(API_MEDIA_URL+params.media)
+  const [documentUri, setDocumentUri] = useState<string>(API_MEDIA_URL+params.media)
   return (
     <>
       <main className='m-10'>
@@ -30,7 +30,7 @@ const DisplayDocument = () => {
               />             
             ) : (
               <iframe 
-                src={'http://localhost:8000/media/documents/routes.txt'}
+                src={documentUri.toString()}
                 width="100%"
                 height="800"
                 title="Iframe Example"
