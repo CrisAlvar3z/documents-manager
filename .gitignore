@@ -29,3 +29,21 @@ pip-delete-this-directory.txt
 
 # VirtualEnv
 .venv/
+
+
+# ReactAPP
+
+# dependencies
+app/node_modules
+app/.pnp
+app/.pnp.js
+
+# testing
+app/coverage
+
+# production
+app/build
+
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
