@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  reactapp:
+    container_name: reactapp
+    build:
+      context: .
+      dockerfile: docker/app.Dockerfile
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    depends_on:
+      - djangoapp 
+  djangoapp:
+    container_name: djangoapp
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DB=postgres
+      - PG_HOST=db
+      - PG_PORT=5432
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  node_modules:
+  pgdata: {}
