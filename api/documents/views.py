@@ -6,10 +6,12 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
+from rest_framework import permissions
 # Create your views here.
 
 class DocumentViewGetPost(APIView):
     parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         Documents = Document.objects.all()
@@ -27,7 +29,8 @@ class DocumentViewGetPost(APIView):
 
 class DocumentViewUpdateDelete(APIView):
     parser_classes = (MultiPartParser, FormParser)
-
+    permission_classes = [permissions.IsAuthenticated]
+    
     def delete(self, request, *args, **kwargs):
         #delete by id
         Documents = Document.objects.get(pk=kwargs['pk'])
