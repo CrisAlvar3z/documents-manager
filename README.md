@@ -69,5 +69,4 @@ clave: admin
 ![editando-documento.jpg](https://i.postimg.cc/tJGbDbdY/editando-documento.jpg)
 ![eliminando-documento.jpg](https://i.postimg.cc/HsHHypsN/eliminando-documento.jpg)
 ![vista-docx.jpg](https://i.postimg.cc/DwpKHLdV/vista-docx.jpg)
-![vista-pdf.jpg](https://i.postimg.cc/qBcH09Xx/vista-pdf.jpg)
 ![vista-txt.jpg](https://i.postimg.cc/BbpzDfmW/vista-txt.jpg)
